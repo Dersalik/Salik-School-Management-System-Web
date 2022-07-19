@@ -1,0 +1,61 @@
+﻿@model IEnumerable<Teacher>
+
+<div class="container p-3">
+	<div class="row pt-4">
+	     <div class="col-6 text-end">
+			<h1>List of the registered teachers</h1>
+		 </div>
+    </div>
+	<br />
+	<br />
+
+
+
+	<table class="table table-bordered table-striped" width="100%">
+
+	<thed>
+		<tr>
+
+			<th>Teacher Name</th>
+
+			<th>current number of topics teaching</th>
+			<th></th>
+		</tr>
+
+
+	</thed>
+		@{
+			int TopicId = (int)TempData["Id"];
+		}
+		
+	<tbody>
+		@foreach(Teacher obj in Model)
+		{
+			<tr>
+				
+				<td width="50%">
+					@obj.Name
+				</td>
+				<td width="30%">
+					@obj?.topics?.Count
+				</td>
+					
+				<td width="25%">
+					<form method="post"   asp-route-Id="@obj.Id" asp-route-TopicId="@TopicId" asp-action="AssignTeacher" asp-controller="Topics" >
+						@Html.HiddenFor(i=>TopicId)
+						@Html.HiddenFor(i=>obj.Id)
+						<input type="submit" value="Assign" class="btn btn-primary"/>
+					</form>
+				</td>
+		
+			</tr>
+		}
+		
+
+	</tbody>
+
+
+
+</table>
+
+</div>

@@ -1,0 +1,44 @@
+﻿@model Teacher
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+<form method="post" asp-controller="Teacher" asp-action="Edit">
+
+	<div class="border p-3 mt-4">
+		<div class="row pb-2">
+			<h2 class="text-primary">Edit Teacher</h2>
+			<hr />
+		</div>
+		<div class="mb-3">
+			<label asp-for="Name">Name</label>
+			<input asp-for="Name" placeholder="Name" class="form-control"/>
+			<span asp-validation-for="Name" class="text-danger"></span>
+		</div>
+		@Html.HiddenFor(k=>Model.Id)
+		<div class="mb-3">
+			<label asp-for="userName">Username</label>
+			<input asp-for="userName" placeholder="userName" class="form-control"/>
+			<span asp-validation-for="userName" class="text-danger"></span>
+		</div>
+		
+		<div class="mb-3">
+			<label asp-for="password">password</label>
+			<input asp-for="password" class="form-control" />
+			<span asp-validation-for="password" class="text-danger"></span>
+		</div>
+	
+		<div asp-validation-summary="All"></div>
+
+		<button type="submit" asp-route-Id="@Model.Id" class="btn btn-primary" style="width:150px">Edit</button>
+		<a asp-controller="Teacher" asp-action="Index" class="btn btn-secondary" style="width:150px">back to list</a>
+    </div>
+	
+</form>
+@section Scripts  
+{
+	<partial name="_ValidationScriptsPartial" />
+}
+
+
+		

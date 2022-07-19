@@ -1,0 +1,33 @@
+﻿@model Student
+
+
+<div class="container p-1 align-content-center">
+	<h2> topics and grades</h2>
+
+</div>
+
+
+
+
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Topic Name</th>
+      <th scope="col">Grade</th>
+      <th scope="col">Progress</th>
+    </tr>
+  </thead>
+  <tbody>
+        @foreach(Topic topic in @Model?.stage?.topicList)
+        {
+            <tr >
+                <td>@topic.Name</td>
+                <td>@Model?.topics?.FirstOrDefault(k=>k.TopicId==topic.Id)?.grade</td>
+                <td>@Model?.topics?.FirstOrDefault(k=>k.TopicId==topic.Id)?.isPassedTopic</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+

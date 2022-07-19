@@ -1,0 +1,88 @@
+﻿@model IEnumerable<Topic>
+@{
+	ViewData["Title"]="All Topics";
+}
+
+<partial name="_Notification" />
+
+<div class="container p-3">
+	<div class="row pt-4">
+		<div class="col-5">
+			<h2 class="text-primary">Topic List</h2>
+		</div> 
+	     <div class="col-6 text-end">
+			<h1>List of the registered topics</h1>
+		 </div>
+    </div>
+	<br />
+	<br />
+
+
+
+	<table class="table table-bordered table-striped" width="100%">
+
+	<thed>
+		<tr>
+			<th></th>
+			<th>Topic Name</th>
+
+			<th>Teachers Name</th>
+			<th>Stage</th>
+			<th>Student</th>
+			<th></th>
+			<th></th>
+		</tr>
+
+
+	</thed>
+
+	<tbody>
+		@foreach(var obj in Model)
+		{
+			<tr>
+				<td>
+					<div class="w-75 btn-group" role="group">
+						<a asp-controller="Topics" asp-action="Edit" asp-route-id="@obj.Id" class="btn btn-primary mx-2"><i class="bi bi-pencil-square"></i>Edit</a>
+					</div>
+				</td>
+				<td width="50%">
+					@obj.Name
+				</td>
+				<td width="30%">
+					@obj?.teacher?.Name
+				</td>
+					
+				<td width="25%">
+						@obj?.Stage?.StageNumber
+				</td>
+				
+				
+				<td>
+					<a asp-controller="Topics" asp-action="AllStudents" asp-route-id="@obj?.Id">Students</a>
+				</td>
+
+				<td>
+					<a asp-controller="Topics" asp-action="AssignTeacher" asp-route-id="@obj?.Id">assign Teacher</a>
+				</td>
+				@if(obj.teacher!=null){
+					<td>
+						<form method="post"   asp-route-Id="@obj.teacher.Id" asp-route-TopicId="@obj.Id" asp-action="RemoveTeacher" asp-controller="Topics" >
+						@Html.HiddenFor(i=>obj.teacher.Id)
+						@Html.HiddenFor(i=>obj.Id)
+						<input type="submit" value="Remove"/>
+					</form>
+				    </td>
+				}
+
+				
+			</tr>
+		}
+
+
+	</tbody>
+
+
+
+</table>
+
+</div>

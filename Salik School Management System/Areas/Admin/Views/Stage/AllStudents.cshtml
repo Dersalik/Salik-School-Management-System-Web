@@ -1,0 +1,31 @@
+﻿@model Stage
+
+
+
+	
+<div class="container p-1 align-content-center">
+	<h2> Students of stage @Model.StageNumber</h2>
+
+</div>
+
+
+
+
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Student Name</th>
+
+    </tr>
+  </thead>
+  <tbody>
+         @foreach(Student std in Model.students)
+        {
+            <tr >
+                <td>@std.Name</td>
+              
+            </tr>
+        }
+    </tbody>
+</table>

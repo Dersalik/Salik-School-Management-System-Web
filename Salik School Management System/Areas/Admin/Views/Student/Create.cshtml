@@ -1,0 +1,63 @@
+﻿@model Student
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<form method="post" asp-controller="Student" asp-action="Create">
+
+	<div class="border p-3 mt-4">
+		<div class="row pb-2">
+			<h2 class="text-primary">Adding new student form</h2>
+			<hr />
+		</div>
+		<div class="mb-3">
+			<label asp-for="Name">Name</label>
+			<input asp-for="Name" placeholder="Name" class="form-control"/>
+			<span asp-validation-for="Name" class="text-danger"></span>
+		</div>
+
+		<div class="mb-3">
+			<label asp-for="age">age</label>
+			<input asp-for="age" placeholder="age" class="form-control"/>
+			<span asp-validation-for="age" class="text-danger"></span>
+		</div>
+		<div class="mb-3">
+			<label asp-for="gender">gender</label><br />
+			Male<input asp-for="age" value="false" name="gender" type="radio"  />
+			Female<input asp-for="age" value="true" type="radio" name="gender" />
+			<span asp-validation-for="gender" class="text-danger"></span>
+		</div>
+		<div class="mb-3">
+			<label asp-for="birthday">Birthday</label>
+			<input asp-for="birthday" class="form-control" />
+			<span asp-validation-for="birthday" class="text-danger"></span>
+		</div>
+		<div class="mb-3">
+
+          <label for="stNum" class="form-label mt-4">select the stage</label>
+          <select class="form-select" id="exampleSelect1" name="stNum" required>
+           <option>1</option>
+           <option>2</option>
+           <option>3</option>
+           <option>4</option>
+           <option>5</option>
+		   <option>6</option>
+          </select>
+       
+
+		</div>
+		
+		
+		<div asp-validation-summary="All"></div>
+
+		<button type="submit" class="btn btn-primary" style="width:150px">Add</button>
+		<a asp-controller="Student" asp-action="Index" class="btn btn-secondary" style="width:150px">back to list</a>
+    </div>
+
+</form>
+@section Scripts  
+{
+	<partial name="_ValidationScriptsPartial" />
+}
