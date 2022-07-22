@@ -27,10 +27,6 @@
     <ProjectReference Include="..\SchoolManagement.Models\SchoolManagement.Models.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Areas\Teacher\Controllers\" />
-  </ItemGroup>
-
 
 	<Target Name="RemoveDuplicateAnalyzers" BeforeTargets="CoreCompile">
 		<!-- Work around https://github.com/dotnet/wpf/issues/6792 -->

@@ -18,7 +18,7 @@ namespace Salik_School_Management_System.Areas.Admin.Controllers
             //IEnumerable<Teacher> teacher = (IEnumerable<Teacher>)_unitOfWork.teacher.GetAllFully().Result;
             var response = _unitOfWork.teacher.GetAllFully();
             var responseresult = await response;
-            IEnumerable<Teacher> teacher = (IEnumerable<Teacher>)responseresult;
+            IEnumerable<SchoolManagement.Models.Teacher> teacher = (IEnumerable<SchoolManagement.Models.Teacher>)responseresult;
             return View(teacher);
         }
 
@@ -30,7 +30,7 @@ namespace Salik_School_Management_System.Areas.Admin.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(Teacher teac)
+        public async Task<IActionResult> Create(SchoolManagement.Models.Teacher teac)
         {
             if (teac == null)
             {
@@ -63,7 +63,7 @@ namespace Salik_School_Management_System.Areas.Admin.Controllers
             }
             var response = _unitOfWork.teacher.GetFully(Id);
             var responseResult = await response;
-            Teacher teacher = responseResult;
+            SchoolManagement.Models.Teacher teacher = responseResult;
             if (teacher == null)
             {
                 return NotFound();
@@ -72,7 +72,7 @@ namespace Salik_School_Management_System.Areas.Admin.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(Teacher teacher)
+        public async Task<IActionResult> Edit(SchoolManagement.Models.Teacher teacher)
         {
             if (ModelState.IsValid)
             {
@@ -98,7 +98,7 @@ namespace Salik_School_Management_System.Areas.Admin.Controllers
             }
             var response = _unitOfWork.teacher.GetFully(Id);
             var responseResult = await response;
-            Teacher teacher = responseResult;
+            SchoolManagement.Models.Teacher teacher = responseResult;
             if (teacher == null)
             {
                 return NotFound();
@@ -107,7 +107,7 @@ namespace Salik_School_Management_System.Areas.Admin.Controllers
         }
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Delete(Teacher t)
+        public async Task<IActionResult> Delete(SchoolManagement.Models.Teacher t)
         {
 
             if (t == null)
@@ -129,7 +129,7 @@ namespace Salik_School_Management_System.Areas.Admin.Controllers
             }
             var response = _unitOfWork.teacher.GetFully(Id);
             var responseResult = await response;
-            Teacher teacher = responseResult;
+            SchoolManagement.Models.Teacher teacher = responseResult;
 
             //teacher.topics =  (List<Topic>?)  _unitOfWork.topic.GetAllFullyByTeacherId(teacher.Id).Result;
             var response2 = _unitOfWork.topic.GetAllFullyByTeacherId(teacher.Id);

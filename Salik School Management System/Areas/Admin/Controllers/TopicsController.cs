@@ -84,7 +84,7 @@ namespace Salik_School_Management_System.Areas.Admin.Controllers
 
             var response2 = _unitOfWork.teacher.GetAllFully();
             var responseresult2 = await response2;
-            IEnumerable<Teacher> teachers = (IEnumerable<Teacher>)responseresult2;
+            IEnumerable<SchoolManagement.Models.Teacher> teachers = (IEnumerable<SchoolManagement.Models.Teacher>)responseresult2;
             TempData.Add("Id", Id);
             return View(teachers);
         }
@@ -101,7 +101,7 @@ namespace Salik_School_Management_System.Areas.Admin.Controllers
 
             var response2 = _unitOfWork.teacher.GetFully(Id);
             var responseResult2 = await response2;
-            Teacher teacher = responseResult2;
+            SchoolManagement.Models.Teacher teacher = responseResult2;
           //  Teacher teacher = _unitOfWork.teacher.GetFully(Id).Result;
             topic.teacher = teacher;
             teacher?.topics?.Add(topic);
@@ -127,7 +127,7 @@ namespace Salik_School_Management_System.Areas.Admin.Controllers
             //Topic topic = _unitOfWork.topic.GetFully(TopicId).Result;
             var response2 = _unitOfWork.teacher.GetFully(Id);
             var responseResult2 = await response2;
-            Teacher teacher = responseResult2;
+            SchoolManagement.Models.Teacher teacher = responseResult2;
            // Teacher teacher = _unitOfWork.teacher.GetFully(Id).Result;
             topic.teacher =null;
             
