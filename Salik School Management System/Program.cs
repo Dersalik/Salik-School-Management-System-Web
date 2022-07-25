@@ -28,6 +28,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{area=Teacher}/{controller=Topics}/{action=Index}");
+    pattern: "{area=Teacher}/{controller=Teachers}/{action=Index}");
 //AppDbInitializer.Seed(app);
 app.Run();

@@ -94,7 +94,7 @@ namespace Salik_School_Management_System.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> AssignTeacher( int Id, int TopicId)
         {
-            var response = _unitOfWork.topic.GetFully(Id);
+            var response = _unitOfWork.topic.GetFully(TopicId);
             var responseResult = await response;
             Topic topic = responseResult;
             // Topic topic = _unitOfWork.topic.GetFully(TopicId).Result;

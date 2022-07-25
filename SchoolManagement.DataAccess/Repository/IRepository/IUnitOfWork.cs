@@ -13,7 +13,7 @@ namespace SchoolManagement.DataAccess.Repository.IRepository
         IStageRepository stage { get; }
         ITeacherRepository teacher { get; }
         ITopicRepository topic { get; }
-        IRepository<StudentTopic> studenTopic { get; }
+        IStudentTopicRepository studenTopic { get; }
         IStudentRepository student { get; }
 
         Task Save();

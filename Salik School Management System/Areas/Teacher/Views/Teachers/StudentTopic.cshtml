@@ -1,0 +1,51 @@
+﻿@model IEnumerable<StudentTopic>
+
+
+
+
+
+
+
+
+
+
+	
+<div class="container p-1 align-content-center">
+	<h2> students and grades</h2>
+
+</div>
+
+
+
+
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Student Name</th>
+      <th scope="col">Grade</th>
+      <th scope="col">new grade</th>
+      <th scope="col">progress</th>
+    </tr>
+  </thead>
+  <tbody>
+         @foreach(var obj in Model)
+        {
+            <tr >
+                <td>@obj.student.Name</td>
+              
+                <td>@obj.grade</td>
+
+                <td>
+                    <form method="post" asp-controller="Teachers" asp-action="UpdateGrade" asp-route-grade="@obj.grade" asp-route-StudentId="@obj.StudentId" asp-route-TopicId="@obj.TopicId">
+                        @Html.HiddenFor(d=>obj.StudentId)
+                        @Html.HiddenFor(d=>obj.TopicId)
+                        <input name="Grade" />
+                        <input type="submit">
+                    </form>
+                </td>
+                <td>@obj.isPassedTopic</td>
+            </tr>
+        }
+    </tbody>
+</table>

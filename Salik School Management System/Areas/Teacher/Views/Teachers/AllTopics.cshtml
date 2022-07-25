@@ -1,0 +1,33 @@
+﻿@model Teacher
+
+
+<div class="container p-1 align-content-center">
+	<h2> Topics assigned to you </h2>
+
+</div>
+
+
+
+
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Topic Name</th>
+      <th scope="col">Number of students</th>
+    </tr>
+  </thead>
+  <tbody>
+        @foreach(Topic topic in @Model.topics)
+        {
+            <tr >
+                <td>@topic.Name</td>
+                <td><a asp-controller="Teachers" asp-action="StudentTopic"  asp-route-Id="@topic.Id">students</a></td>
+               
+                
+            </tr>
+        }
+    </tbody>
+</table>
+
+

@@ -20,7 +20,7 @@ namespace SchoolManagement.DataAccess.Repository
             stage=new StageRepository(_db);
             teacher=new TeacherRepository(_db);
             topic=new TopicRepository(_db);
-            studenTopic = new Repository<StudentTopic>(_db);
+            studenTopic = new StudentTopicRepository(_db);
             student = new StudentRepository(_db);
 
 
@@ -34,7 +34,7 @@ namespace SchoolManagement.DataAccess.Repository
 
         public ITopicRepository topic { get; private set; }
 
-        public IRepository<StudentTopic> studenTopic { get; private set; }
+        public IStudentTopicRepository studenTopic { get; private set; }
 
         public IStudentRepository student { get; private set; }
 
